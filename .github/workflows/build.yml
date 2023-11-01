@@ -184,7 +184,7 @@ jobs:
           make test-deps
           gomobile bind -tags "envproduction nogrpcserver gomobile nowatchdog nosigar nomutexdeadlockdetector" -ldflags "$FLAGS" -v -target=ios -o Lib.xcframework github.com/anyproto/anytype-heart/clientlibrary/service github.com/anyproto/anytype-heart/core || true
           gtar --exclude ".*" -czvf ios_framework.tar.gz Lib.xcframework protobuf json
-          gradle publish
+          # gradle publish
           mv ios_framework.tar.gz .release/ios_framework_${VERSION}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -212,14 +212,14 @@ jobs:
           gomobile bind -tags "envproduction nogrpcserver gomobile nowatchdog nosigar nomutexdeadlockdetector" -ldflags "$FLAGS" -v -target=android -androidapi 19 -o lib.aar github.com/anyproto/anytype-heart/clientlibrary/service github.com/anyproto/anytype-heart/core || true
           gtar --exclude ".*" -czvf android_lib_${VERSION}.tar.gz lib.aar protobuf json
           mv android_lib_${VERSION}.tar.gz .release/
-      - name: Publish android lib to maven
-        run: |
-          gradle publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: ${{ github.actor }}
-          MAVEN_ARTIFACT_ID: 'anytype-heart-android'
-          MAVEN_ARTIFACT_NAME: 'lib.aar'
+      # - name: Publish android lib to maven
+      #   run: |
+      #     gradle publish
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GITHUB_USER: ${{ github.actor }}
+      #     MAVEN_ARTIFACT_ID: 'anytype-heart-android'
+      #     MAVEN_ARTIFACT_NAME: 'lib.aar'
       - name: Release
         if: github.event_name == 'push'
         uses: softprops/action-gh-release@v1
