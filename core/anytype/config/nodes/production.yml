@@ -2,16 +2,16 @@ networkId: N7mdjQJVpnu9PAXP6rqXB1Ns9fxDVbhBA2N8eD7aUuqzVpVV
 nodes:
   - peerId: 12D3KooWEnLWRREMKoHr3Yo5aPXR4Vu3Gunw8twXKrSB9TesJnR4
     addresses:
-      - 172.17.0.1:4830
+      - coordinator.anytype.keng42.com:443
     types:
       - coordinator
   - peerId: 12D3KooWRGxWoHm3vUt6V7LYP2FLBk2BWHtMJ4v4JU2fELJJziRZ
     addresses:
-      - 172.17.0.1:4430
+      - tree.anytype.keng42.com:443
     types:
       - tree
   - peerId: 12D3KooWDAk6avjuwB4ujc8ysw4vSkWMPh9eA1KAF7LRjqzkSXND
     addresses:
-      - 172.17.0.1:4730
+      - file.anytype.keng42.com:443
     types:
       - file

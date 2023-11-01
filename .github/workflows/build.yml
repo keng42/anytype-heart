@@ -7,10 +7,10 @@ on:
       alpha_version:
         description: 'Alpha version'
         default: ''
-      run-on-runner:
-        description: 'Specify the runner to use'
-        required: true
-        default: 'self-hosted'
+      # run-on-runner:
+      #   description: 'Specify the runner to use'
+      #   required: true
+      #   default: 'self-hosted'
 
 name: Build
 jobs:
